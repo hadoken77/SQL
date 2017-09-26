@@ -1,0 +1,21 @@
+﻿declare @t1 table (c1 int, c2 varchar(100))
+
+insert into @t1 (c1, c2)
+select 1, 'John'
+union all select 1, 'John'
+union all select 2, 'Steve'
+union all select 2, 'Steve'
+union all select 2, 'Steve'
+union all select 3, 'Bob'
+union all select 4, 'Jen'
+union all select 4, 'Jen'
+union all select 5, 'Dan'
+
+; with a as (select c1, c2
+                 , row_number() over (partition by c1, c2 order by c1) ord
+             from @t1 
+             )
+select c1, c2
+from a
+where ord = 1
+
