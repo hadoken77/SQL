@@ -1,4 +1,6 @@
-﻿declare @t1 table (c1 int, c2 varchar(100))
+-- given a table containing duplicate data, how do you remove them?
+
+declare @t1 table (c1 int, c2 varchar(100))
 
 insert into @t1 (c1, c2)
 select 1, 'John'
