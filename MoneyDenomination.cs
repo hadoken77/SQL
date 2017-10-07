@@ -16,7 +16,7 @@ namespace Rextester
 {
     public class Program
     {
-        static int[] vals = new int[] {1, 5, 10, 25, 15, 20, 13};
+        static int[] vals = new int[] {1, 5, 10, 25};
         static int max = 26;
         static List<string> results;
         public static void Main(string[] args)
