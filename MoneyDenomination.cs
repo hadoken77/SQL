@@ -16,8 +16,8 @@ namespace Rextester
 {
     public class Program
     {
-        static int[] vals = new int[] {5, 10, 25};
-        static int max = 95;
+        static int[] vals = new int[] {1, 5, 10, 25, 15, 20, 13};
+        static int max = 26;
         static List<string> results;
         public static void Main(string[] args)
         {
@@ -58,7 +58,11 @@ namespace Rextester
                 if (current + denom * vals[index] == max)
                 {
                     var sb = new StringBuilder();
-                    nums.ForEach(n => sb.Append(n.ToString() + ","));
+                    for (int k=0; k<nums.Count; ++k)
+                    {
+                        if (nums[k] > 0)
+                            sb.AppendFormat("{0}*{1}+", nums[k], vals[k]);
+                    }
                     results.Add(sb.ToString());
                     break;
                 }
