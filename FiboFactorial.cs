@@ -19,8 +19,12 @@ namespace Rextester
             //Your code goes here
             for (int i=3; i<=10; ++i)
                 Console.WriteLine(string.Format("{0}! = {1}", i, Factorial(i)));
-            for (int i=0; i<=20; ++i)
+            for (int i=3; i<=10; ++i)
+                Console.WriteLine(string.Format("{0}! = {1}", i, FactorialRecursion(i)));
+            for (int i=0; i<=10; ++i)
                 Console.WriteLine(string.Format("Fibo({0}) = {1}", i, Fibo(i)));
+            for (int i=0; i<=10; ++i)
+                Console.WriteLine(string.Format("FiboRecursion({0}) = {1}", i, FiboRecursion(i)));
         }
 
     
