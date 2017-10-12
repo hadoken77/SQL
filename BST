@@ -1,0 +1,76 @@
+/*
+Man Nguyen 10/11/2017
+Binary Search Tree
+Add & Print operations
+
+*/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Your code goes here
+            Random rand = new Random();
+            Node head = null;
+            int max = 1000;
+            for (int i=0; i<1000; ++i)
+            {
+                if (head == null)
+                    head = Add(null, rand.Next(0, max));
+                else Add(head, rand.Next(0, max));
+            }
+            Print(head);
+            Console.WriteLine(string.Format("\nDepth: {0}", Depth(head, 0)));
+        }
+        
+        public static Node Add(Node ptr, int data)
+        {
+            if (ptr == null)
+            {
+                ptr = new Node();
+                ptr.data = data;
+                return ptr;
+            }
+            if (data < ptr.data && ptr.left == null)
+                ptr.left = Add(null, data);
+            else if (data >= ptr.data && ptr.right == null)
+                ptr.right = Add(null, data);
+            else if (data < ptr.data)
+                Add(ptr.left, data);
+            else Add(ptr.right, data);
+            return null;
+        }
+        
+        public static void Print(Node ptr)
+        {
+            if (ptr == null) return;
+            if (ptr.left != null)
+                Print(ptr.left);
+            Console.Write(string.Format("{0},", ptr.data));
+            if (ptr.right != null)
+                Print(ptr.right);
+        }
+        
+        public static int Depth(Node ptr, int level)
+        {
+            if (ptr == null) return 0;
+            int l = Depth(ptr.left, level) + 1;
+            int r = Depth(ptr.right, level) + 1;
+            return l > r ? l : r;
+        }
+        
+    }
+    
+    public class Node
+    {
+        public int data;
+        public Node left, right;
+    }
+}
