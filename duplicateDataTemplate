@@ -12,6 +12,7 @@ union all select 3, 'Bob'
 union all select 4, 'Jen'
 union all select 4, 'Jen'
 union all select 5, 'Dan'
+union all select 6, 'Steve'
 
 ; with a as (select c1, c2
                  , row_number() over (partition by c1, c2 order by c1) ord
