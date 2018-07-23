@@ -17,7 +17,9 @@ union all select 5, 'Dan'
                  , row_number() over (partition by c1, c2 order by c1) ord
              from @t1 
              )
-select c1, c2
+--select c1, c2
+delete
 from a
-where ord = 1
+where ord > 1
 
+select * from @t1
